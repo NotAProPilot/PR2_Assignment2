@@ -20,41 +20,28 @@
 + PCmust appropriately use Setin its design.
 + You must implement ```PC.toString()``` such that the outputs look like the example shown in
 Section 1.
-+You **must override** the equals()method for PC, which determines equality of two PCobjects based on their states.
++ You **must override** the equals()method for PC, which determines equality of two PCobjects based on their states.
 
-3\. Specify and implement class PCFactory that has a factory method for creating PCs. This class
+## Specify and implement class PCFactory that has a factory method for creating PCs. 
++ This class must also be a singleton. You must strictly follow the relevant design pattern solutions.
 
-must also be a singleton. You must strictly follow the relevant design pattern solutions.
+## Specify and implement class PCReportwhich contains a single operation:
 
-4\. Specify and implement class PCReportwhich contains a single operation:
+```displayReport(PC[] objs): String```
 
-displayReport(PC[] objs): String
+- *Note the following:*
+   1. The report format must be as specified in **Listing 1**.
+   2. This class has no instance variables.
 
-*Note the following:*
-
-a) The report format must be as specified in **Listing 1**.
-
-b) This class has no instance variables.
-
-5\. A partially completed class named PCProg is provided for testing your program. Move it into
-
-your a2\_sidpackage so that you can run it. Class PCProgcontains the mainmethod and some
-
-operations for performing the tasks highlighted in Section 1:
-
-a) Attribute objsis typed Set<PC>and used to record PC objects.
-
-b) createObjects: uses PCFactory to create a new PC object and record it in objs. Method
-
-createObjectsshould not invoke PCconstructor directly.
-
-c) getObjects: return the recorded PC objects.
-
-d) displayReport: uses PCReportto generate and display the tabular report about PC objects.
-
-e) saveReport: save the report text to file.
-
-f) main: create a new PCProgobject and run its operations.
+## Specify for the PCProg (partially completed)
+- A partially completed class named PCProg is provided for testing your program. Move it into your a2\_sidpackage so that you can run it. 
+- Class PCProgcontains the ```main``` method and some operations for performing the tasks highlighted in Section 1:
+  +  Attribute ```objsis``` typed Set<PC>and used to record PC objects.
+  +  ```createObjects```: uses PCFactory to create a new PC object and record it in objs. Method createObjectsshould not invoke PCconstructor directly.
+  + ```getObjects```: return the recorded PC objects.
+  + ```displayReport```: uses PCReportto generate and display the tabular report about PC objects.
+  + ```saveReport```: save the report text to file.
+  + ```main```: create a new PCProgobject and run its operations.
 
 Note:
 
