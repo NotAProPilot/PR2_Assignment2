@@ -1,17 +1,77 @@
 # Task requirements
-Complete the following tasks:
-## Step 1: Set up
- - Create a package named a2_sid as shown in Figure 1, where sid is your student id. For example, if your student id is 123456789 then the package name is a2_123456789.
-- You will need to use this package to store all the Java class(es) that you create for the program.
-- Copy to this package two classes (PCProg and Set) that are provided in the attached zip file. 
-- Fix the import statements in these classes to match your package name. The subsequent tasks will explain what you need to do with these classes. The design of class Set was explained in the coursebook.
-**IMPORTANT**:
-  a) Failure to name the package as described above will result in an invalid program.
-  b) You must use the necessary utility classes in the utils package (provided as part of the lecture resources). This package should be created as another top-level        package as shown in Figure 1. You must not create package utils as a sub-package of your package. In addition, you must not include package utils as part of your      submission.
-c) You may use JDK version 8 or 11 only.
-## Step 2: Specify and implement class PC.
-  Note:
-    (a) PC must contain the essential state and behaviour spaces.
-    (b) PC must appropriately use Set in its design.
-    (c) You must implement PC.toString() such that the outputs look like the example shown in Section 1.
-    (d) You must override the equals() method for PC, which determines equality of two PC objects based on their states.
+## Prerequistes 
+
+- Complete the following tasks:
+
+1.  - Create a package named a2\_sidas shown in **Figure 1**, where sidis your student id. For example, if your student id is 123456789 then the package name is a2\_123456789.
+    - You will need to use this package to store all the Java class(es) that you create for the program.
+
+2.  - Copy to this package two classes (PCProgand Set) that are provided in the attached zip file. Fix the import statements in these classes to match your package name.
+    - The subsequent tasks will explain what you need to do with these classes. The design of class Setwas explained in the coursebook.
+
+## Important notice: 
++ Failure to name the package as described above will result in an invalid program.
++ You must use the necessary utility classes in the utils package (provided as part of the lecture resources). This package should be created as another top-level package as shown in **Figure 1**. You must **not** create package utilsas a sub-package of your package. 
++ In addition, you must **not** include package utils as part of your submission.
++ You may use JDK version 8 or 11 only.
+
+## Specify and implement class PC.
++ PCmust contain the essential state and behaviour spaces.
++ PCmust appropriately use Setin its design.
++ You must implement ```PC.toString()``` such that the outputs look like the example shown in
+Section 1.
++You **must override** the equals()method for PC, which determines equality of two PCobjects based on their states.
+
+3\. Specify and implement class PCFactory that has a factory method for creating PCs. This class
+
+must also be a singleton. You must strictly follow the relevant design pattern solutions.
+
+4\. Specify and implement class PCReportwhich contains a single operation:
+
+displayReport(PC[] objs): String
+
+*Note the following:*
+
+a) The report format must be as specified in **Listing 1**.
+
+b) This class has no instance variables.
+
+5\. A partially completed class named PCProg is provided for testing your program. Move it into
+
+your a2\_sidpackage so that you can run it. Class PCProgcontains the mainmethod and some
+
+operations for performing the tasks highlighted in Section 1:
+
+a) Attribute objsis typed Set<PC>and used to record PC objects.
+
+b) createObjects: uses PCFactory to create a new PC object and record it in objs. Method
+
+createObjectsshould not invoke PCconstructor directly.
+
+c) getObjects: return the recorded PC objects.
+
+d) displayReport: uses PCReportto generate and display the tabular report about PC objects.
+
+e) saveReport: save the report text to file.
+
+f) main: create a new PCProgobject and run its operations.
+
+Note:
+
+• The following procedures are completed and provided for you: displayReport,
+
+saveReportand main. You must not change them.
+
+• In order to make the program work, you need to specify and implement the operations
+
+createObjectsand getObjects.
+
+**3. Submission requirements**
+
+Create a zip file containing **just the folder of the required package**. You must name the file as
+
+follows: a2\_sid.zip, where sidis your student id. Submit your file to the designated submission box.
+
+**IMPORTANT:** Failure to name the file as described above will result in an invalid program. In
+
+particular, ONLY the **ZIP** format is accepted. Other formats (e.g. RAR) are NOT accepted.
