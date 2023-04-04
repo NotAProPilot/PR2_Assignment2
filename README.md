@@ -51,3 +51,7 @@ Section 1.
 1. Create a zip file containing **just the folder of the required package**. You must name the file as follows: a2\_sid.zip, where sidis your student id. Submit your file to the designated submission box.
 2. In particular, ONLY the **ZIP** format is accepted. Other formats (e.g. RAR) are NOT accepted.
 **IMPORTANT:** Failure to name the file as described above will result in an invalid program.
+## Frequently Asked Questions (FAQs)
+1. Specify and implement class PCFactory that has a factory method for creating PCs. This class must also be a **singleton**. **What is a singleton?**
+- Singleton pattern concerns classes that have **only one object**. 
+- 
