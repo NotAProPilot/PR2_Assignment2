@@ -43,22 +43,11 @@ Section 1.
   + ```saveReport```: save the report text to file.
   + ```main```: create a new PCProgobject and run its operations.
 
-Note:
+- **Some notes about the PC Prog class**:
+  + The following procedures are completed and provided for you: ```displayReport```, ```saveReportand```, and ```main```. You must **not** change them.
+  + In order to make the program work, you need to specify and implement the operations ```createObjectsand``` and ```getObjects```.
 
-• The following procedures are completed and provided for you: displayReport,
-
-saveReportand main. You must not change them.
-
-• In order to make the program work, you need to specify and implement the operations
-
-createObjectsand getObjects.
-
-**3. Submission requirements**
-
-Create a zip file containing **just the folder of the required package**. You must name the file as
-
-follows: a2\_sid.zip, where sidis your student id. Submit your file to the designated submission box.
-
-**IMPORTANT:** Failure to name the file as described above will result in an invalid program. In
-
-particular, ONLY the **ZIP** format is accepted. Other formats (e.g. RAR) are NOT accepted.
+## Submission requirements
+1. Create a zip file containing **just the folder of the required package**. You must name the file as follows: a2\_sid.zip, where sidis your student id. Submit your file to the designated submission box.
+2. In particular, ONLY the **ZIP** format is accepted. Other formats (e.g. RAR) are NOT accepted.
+**IMPORTANT:** Failure to name the file as described above will result in an invalid program.
