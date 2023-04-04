@@ -9,7 +9,7 @@ import utils.collections.Collection;
 /**
  * @overview Generic set are mutable, unbounded sets of elements of a given
  *           type. Element type can be Object.
- * 
+ *
  * @attributes elements Set<T> Vector<T>
  * @object A typical Set<T> object is c={x1,...,xn}, where x1,...,xn are
  *         elements of type T.
@@ -33,7 +33,7 @@ public class Set<T> implements Collection<T> {
 	/**
 	 * @modifies <tt>this</tt>
 	 * @effects
-	 * 
+	 *
 	 *          <pre>
 	 *   if x is already in this 
 	 *     do nothing 
@@ -50,7 +50,7 @@ public class Set<T> implements Collection<T> {
 	/**
 	 * @modifies <tt>this</tt>
 	 * @effects
-	 * 
+	 *
 	 *          <pre>
 	 *   if x is not in this 
 	 *     do nothing 
@@ -70,7 +70,7 @@ public class Set<T> implements Collection<T> {
 
 	/**
 	 * @effects
-	 * 
+	 *
 	 *          <pre>
 	 *  if x is in this 
 	 *    return true 
@@ -109,7 +109,7 @@ public class Set<T> implements Collection<T> {
 
 	/**
 	 * @effects
-	 * 
+	 *
 	 *          <pre>
 	 *  if this is empty 
 	 *    throw an IllegalStateException
@@ -125,7 +125,7 @@ public class Set<T> implements Collection<T> {
 
 	/**
 	 * @effects
-	 * 
+	 *
 	 *          <pre>
 	 *  if x is in this 
 	 *    return the index where x appears 
@@ -145,11 +145,11 @@ public class Set<T> implements Collection<T> {
 	@Override
 	public String toString() {
 		if (size() == 0)
-			return "Set:{ }";
+			return "Set{ }";
 
-		String s = "Set:{" + elements.elementAt(0).toString();
+		String s = "Set{" + elements.elementAt(0).toString();
 		for (int i = 1; i < size(); i++) {
-			s = s + " , " + elements.elementAt(i).toString();
+			s = s + "," + elements.elementAt(i).toString();
 		}
 
 		return s + "}";
@@ -157,10 +157,10 @@ public class Set<T> implements Collection<T> {
 
 	/**
 	 * @effects
-	 * 
+	 *
 	 *          <pre>
 	 *   if this satisfies abstract properties
-	 *     return true 
+	 *     return true
 	 *   else
 	 *     return false
 	 *          </pre>
@@ -192,3 +192,4 @@ public class Set<T> implements Collection<T> {
 		return getElements().equals(set.getElements());
 	}
 }
+

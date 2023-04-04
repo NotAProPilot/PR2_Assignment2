@@ -12,7 +12,7 @@ import utils.collections.Collection;
 /**
  * (HEADER SPECIFICATIONS)
  * @overview A PC (personal computer) is a multipurpose microcomputer
- * whose size, capabilities, and price make it feasible for individual use.
+ * whose size, capabilities, and price mak
  * @attributes
  * model String  String
  * year  Integer int
@@ -22,10 +22,18 @@ import utils.collections.Collection;
  *         where md = model (md), year (y), manufacture (m) and comps (c)
  * @abstract_properties (a short description of the table):
  * mutable(md) = true /\ optional (md) = false /\ length (md) = 20
- * mutable(y) = true /\ optional (m) = false /\ length (m) = 20
+ * mutable(y) = false /\ optional (y) = false /\ min (y) = 1984
+ * mutable(m) = false /\ optional (m) = false /\ length (y) = 15
+ * mutable(c) = true /\ optional (c) = false
  */
 public class PC {
-    public static void main (String[]args) {
-        System.out.println("FUCKKK");
-    }
+    @DomainConstraint(type = "String", mutable = true, optional = false)
+    private String model;
+    @DomainConstraint(type = "Integer", mutable = false, optional = false)
+    private int year;
+    @DomainConstraint(type = "String", mutable = false, optional = false)
+    private String manufacturer;
+    @DomainConstraint(type = "Set<String>", mutable = false, optional = false)
+    private Set<String> comps;
+
 }
