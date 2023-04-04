@@ -4,7 +4,7 @@ Complete the following tasks:
  - Create a package named a2_sid as shown in Figure 1, where sid is your student id. For example, if your student id is 123456789 then the package name is a2_123456789.
 - You will need to use this package to store all the Java class(es) that you create for the program.
 - Copy to this package two classes (PCProg and Set) that are provided in the attached zip file. Fix the import statements in these classes to match your package name. The subsequent tasks will explain what you need to do with these classes. The design of class Set was explained in the coursebook.
-IMPORTANT:
+- **IMPORTANT**:
   a) Failure to name the package as described above will result in an invalid program.
   b) You must use the necessary utility classes in the utils package (provided as part of the lecture resources). This package should be created as another top-level        package as shown in Figure 1. You must not create package utils as a sub-package of your package. In addition, you must not include package utils as part of your      submission.
 c) You may use JDK version 8 or 11 only.
