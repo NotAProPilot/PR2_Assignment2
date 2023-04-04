@@ -7,3 +7,8 @@
 1. The PC class is completed.
 2. However, we aren't sure about the following: In the ```@DomainConstraint``` comment, is it ```type = "Integer"``` ot ```type = "int"```?
 3. Simillarly, do we need to add **other** attributes, such as ```min```, ```max```, ```length```?
+## Tracking table for changelogs
+| Update number  | Issue number | Status | Description of problems |
+| ------------- | ------------- | ------ | ----------------------- |
+| Content Cell  | Content Cell  | ------ | ----------------------- |
+| Content Cell  | Content Cell  | ------ | ----------------------- |
