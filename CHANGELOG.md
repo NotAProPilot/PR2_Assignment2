@@ -9,8 +9,18 @@
 3. Simillarly, do we need to add **other** attributes, such as ```min```, ```max```, ```length```?
 ## Update 3: 9:10 PM Apr 4
 - The PCFactory class is a singleton, so there's only 1 line: create a PC object. However, we're tasked with creating **multiple PC**. So, a for loop? (Ask the teacher)
+
+## Update 4: 10PM Apr 5
+- Tut 8 and 9 deals with PC class.
+- For the PC Fac class, this is where we asked the user input.
+- **DO NOT** use 
+```java
+import java.util.Scanner
+"and"
+Scanner console = new Scanner (System.in)
+```
 ## Tracking table for changelogs
 | Update number  | Issue number | Status | Description of problems |
 | ------------- | ------------- | ------ | ----------------------- |
-| Content Cell  | Content Cell  | ------ | ----------------------- |
+| 2 | 2 | Semi-fixed | ----------------------- |
 | Content Cell  | Content Cell  | ------ | ----------------------- |
