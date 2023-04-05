@@ -42,7 +42,24 @@ public class ClassName {
 - A notable thing: This instance will have the same name as in our class. 
 - An example (using the Person class in last week problem):
 ```java
-public Person 
+/**
+* if a method is NOT optional -> put something inside the param.
+* and also we need to add the description before. 
+* ----------------------(remove this line and anything above it)
+* @effects <pre>
+* if id, name is valid
+*   initialize this as <id, name>
+* else 
+*   throws NotPossibleExeception
+* </pre>
+*/
+public Person (int id, String name)
+{
+  this.id = id; // to make sure that this is a value that the user input in
+  this.name = name;
+  
+}
+
 // it returns nothing; but instead of void, it'll return that Object.
 ```
 
