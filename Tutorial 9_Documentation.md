@@ -62,7 +62,7 @@ public Person (@int id, String name) (@AttrRef("id") int id, @AttrRef )
 
 // it returns nothing; but instead of void, it'll return that Object.
 ```
-### Observer
+### Observer/Getter
 - Usually start with get.
 - The principle behind it is this: for each 
 ```java
@@ -73,12 +73,37 @@ public Person (@int id, String name) (@AttrRef("id") int id, @AttrRef )
 *   return this.id
 * </pre>
 @DOpt (type= OptType.observer)
+@AttrRef("id")
 public int getId() {
   return this.id;
 
 }
+```
+
+### Mutator:
+- For each attribute which is mutable, creater a Setter (Mutator)
+- We use the class Person here (see Textbook for the original 
+```java
+/**
+* @modifies this.name
+* @effects <pre>
+*   if newName is valid
+*     set this.name = newName\
+*     return true
+*   else
+*     return false
+* </pre>
+
+public boolean setName (string newName)
+{
+this.name = newName;
+}
+- You can see how it plays out in the **following** picture:
+![image](https://user-images.githubusercontent.com/113848893/229960288-267ac513-b6be-4e08-9ddc-97e5734c895a.png)
 
 
+
+- And an overview of this program in the beginning here:
 ![image](https://user-images.githubusercontent.com/113848893/229953569-ed4e2a7a-8c7b-4558-9748-78ef7760551f.png)
 
 
