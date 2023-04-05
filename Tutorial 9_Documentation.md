@@ -98,6 +98,7 @@ public boolean setName (string newName)
 {
 this.name = newName;
 }
+```
 - You can see how it plays out in the **following** picture:
 ![image](https://user-images.githubusercontent.com/113848893/229960288-267ac513-b6be-4e08-9ddc-97e5734c895a.png)
 
