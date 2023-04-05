@@ -40,6 +40,11 @@ public class ClassName {
 
 - So, in order to **construct** something, in our case, Banh Chung, it need to **take in ingredients** (state space specs), and return an instance. 
 - A notable thing: This instance will have the same name as in our class. 
+- An example (using the Person class in last week problem):
+```java
+public Person 
+// it returns nothing; but instead of void, it'll return that Object.
+
 
 
 
