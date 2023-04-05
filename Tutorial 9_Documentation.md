@@ -53,7 +53,7 @@ public class ClassName {
 *   throws NotPossibleExeception
 * </pre>
 */
-public Person (int id, String name)
+public Person (@int id, String name) (@AttrRef("id") int id, @AttrRef )
 {
   this.id = id; // to make sure that this is a value that the user input in
   this.name = name;
@@ -62,7 +62,21 @@ public Person (int id, String name)
 
 // it returns nothing; but instead of void, it'll return that Object.
 ```
+### Observer
+- Usually start with get.
+- The principle behind it is this: for each 
+```java
+/**
+* since id is int, the get method data type is THE SAME as the type of data.
+* ------ (ignore this line) --------- 
+* @effects <pre>
+*   return this.id
+* </pre>
+@DOpt (type= OptType.observer)
+public int getId() {
+  return this.id;
 
+}
 
 
 ![image](https://user-images.githubusercontent.com/113848893/229953569-ed4e2a7a-8c7b-4558-9748-78ef7760551f.png)
