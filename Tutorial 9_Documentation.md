@@ -1,5 +1,6 @@
 ## Notes
 - Tutorial 9 continues on the work of Tutorial 8 and Exercise in the Coursebook.
+- **CHECK SUBMISSION BOX, TUTORIAL 9, CLASS A05 and B05 for source code.**
 
 ## Review on last week
 1. A OOP head space in java, *usually*, have the following contents:
