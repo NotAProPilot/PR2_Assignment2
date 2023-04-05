@@ -30,7 +30,7 @@ public class ClassName {
 /**
 (state space)
 /*
-
+```
 
 
 ### Constructor class
@@ -55,6 +55,7 @@ public class ClassName {
 */
 public Person (@int id, String name) (@AttrRef("id") int id, @AttrRef )
 {
+if 
   this.id = id; // to make sure that this is a value that the user input in
   this.name = name;
   
@@ -101,6 +102,46 @@ this.name = newName;
 ```
 - You can see how it plays out in the **following** picture:
 ![image](https://user-images.githubusercontent.com/113848893/229960288-267ac513-b6be-4e08-9ddc-97e5734c895a.png)
+
+### Helper
+
+
+
+
+### Validators
+- The idea is this, for each attribute, we will have a validator. 
+```java
+/**
+* @effects <pre>
+*   if id is valid
+*     return true (hence the boolean)
+*   else
+*     return false
+* </pre>
+private boolean validateID(){
+  // Since we've already tested most of the previous conditions
+  // We will test something that is unique.
+  // int data has a min or max. So, we will tets that.
+  
+ 
+  // Also we will modify the Constructor above: 
+}
+```
+- Some note about String (and null)
+  - In some case
+
+![image](https://user-images.githubusercontent.com/113848893/229962007-6bb33c64-89bb-44d7-be43-965396e6bd6c.png)
+
+- And the constructor located aboved can be modify to this:
+![image](https://user-images.githubusercontent.com/113848893/229962321-51df27a3-bb10-49f9-a8ce-391facef9422.png)
+
+- A more update version will look like this:\
+ ![image](https://user-images.githubusercontent.com/113848893/229962530-303e5dfb-1241-48d2-a737-4380e33573ef.png)
+
+### RepOK
+- Using the Banh Chung example: This is to MAKE SURE WE DON'T GET FOOD POSIONING.
+
+![image](https://user-images.githubusercontent.com/113848893/229963112-da7c4e4d-e8cc-4e35-b1c5-58cb7366d2ef.png)
 
 
 
