@@ -143,8 +143,20 @@ private boolean validateID(){
 
 ![image](https://user-images.githubusercontent.com/113848893/229963112-da7c4e4d-e8cc-4e35-b1c5-58cb7366d2ef.png)
 
+- But what if something is an Object, like in our MobilePhone class?
+- 
+
+- And the end result:
+![image](https://user-images.githubusercontent.com/113848893/229963557-487820ed-6648-41f8-ae8c-612f3a7843ae.png)
 
 
+
+### toString 
+- A sample of ```toString``` can be founded here:\
+![image](https://user-images.githubusercontent.com/113848893/229963680-42145da6-9c1b-408e-9a21-e16e0866d9de.png)
+
+
+###
 - And an overview of this program in the beginning here:
 ![image](https://user-images.githubusercontent.com/113848893/229953569-ed4e2a7a-8c7b-4558-9748-78ef7760551f.png)
 
