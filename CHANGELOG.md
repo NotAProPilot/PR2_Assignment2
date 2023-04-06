@@ -19,6 +19,10 @@ import java.util.Scanner
 "and"
 Scanner console = new Scanner (System.in)
 ```
+
+## Update 5: 12PM Apr 6
+- This *warning* exists: ![image](https://user-images.githubusercontent.com/113848893/230275634-80006515-3272-4bd2-899e-67f2f926ba76.png)
+
 ## Tracking table for changelogs
 | Update number  | Issue number | Status | Description of problems |
 | ------------- | ------------- | ------ | ----------------------- |
