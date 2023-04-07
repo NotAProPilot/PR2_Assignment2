@@ -13,6 +13,9 @@ import utils.collections.Collection;
 public class PCFactory {
     PC PC = new PC();
 
+
+    }
+
     // ASK USER INPUT HERE, DO NOT USE SCANNER
     // use textIO AND do not submit utils an textio
 }

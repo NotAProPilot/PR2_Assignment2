@@ -35,6 +35,17 @@ public class PCProg {
 		objs = new Set<>();
 	}
 
+
+	public void createObjects(PCFactory pcFactory, PC[] objs){
+		// Create a new PC object using the factory method
+		PC newPC = pcFactory.createPC();
+
+		// Record the new PC object in objs
+		objs[index] = newPC;
+		index++;
+	}
+
+
 	/**
 	 * DO NOT MODIFY THIS
 	 * @effects if objs is not empty display to the standard console a text-based
