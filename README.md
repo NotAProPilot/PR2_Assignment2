@@ -54,4 +54,7 @@ Section 1.
 ## Frequently Asked Questions (FAQs)
 1. Specify and implement class PCFactory that has a factory method for creating PCs. This class must also be a **singleton**. **What is a singleton?**
 - Singleton pattern concerns classes that have **only one object**. 
-- 
+2. Can integer be null?
+- You must be here from Tutorial 9 documentation.
+- A short answer would be this: 
+    > In Java, int is a primitive type and it is not considered an object. Only objects can have a null value. So the answer to your question is no, it can't be null. But it's not that simple, because there are objects that represent most primitive types.
