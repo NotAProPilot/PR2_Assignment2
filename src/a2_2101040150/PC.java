@@ -3,10 +3,6 @@ package a2_2101040150;
  * Import all the necessary package
  */
 
-
-
-
-
 import utils.*; // import EVERYTHING at once. Now I start to realize.
 
 import utils.DOpt;
@@ -41,9 +37,9 @@ public class PC {
     @DomainConstraint(type = "String", mutable = false, optional = false)
     private String manufacturer;
     @DomainConstraint(type = "Set<String>", mutable = false, optional = false)
-    private Set comps;
+    private Set<String> comps;
 
-    // PART 3: CONSTRUCTOR CLASS
+    // PART 3: CONSTRUCTOR CLASS (ONLY APPLY IF SOMETHING IS NOT OPTIONAL)
 
     // constructor: optional = false -> params
     /**
@@ -54,8 +50,8 @@ public class PC {
      *      throws NotPossibleException
      * </pre>
      */
-    public PC(@AttrRef("model") String model, @AttrRef("year") int year, @AttrRef("manufacturer") String manufacturer, @AttrRef("comps") Set comps) throws NotPossibleException {
-        if (validateId(id) && validateName(name)) {
+    public PC(@AttrRef("year") int year, @AttrRef("manufacturer") String manufacturer, @AttrRef("model") String model, @AttrRef("comps") Set<String> comps) throws NotPossibleException {
+        if (validateModel(model) && validateYear(year) && validateManufacturer(manufacturer) && validateComps(comps)) {
             this.model = model;
             this.year = year;
             this.manufacturer = manufacturer;
@@ -66,49 +62,204 @@ public class PC {
     }
 
 
+
+
     // PART 4: GETTER (OR OBSERVER, I DON'T GIVE A F*CK)
     // Do note that EACH ATTRIBUTE will GET IT OWNS GETTER.
 
+    // 4.1: setter for model
     /**
      * @effects <pre>
      *     return this.model
      * </pre>
      */
-    @DOpt(type = OptType.Observer) @AttrRef("id")
+    @DOpt(type = OptType.Observer) @AttrRef("model")
     public String getModel() {
         return this.model;
     }
 
+    // 4.2: setter for year
     /**
      * @effects <pre>
      *     return this.year
      * </pre>
      */
-    @DOpt(type = OptType.Observer) @AttrRef("id")
+    @DOpt(type = OptType.Observer) @AttrRef("year")
     public int getYear() {
         return this.year;
     }
 
+    // 4.3: setter for manufacturer
     /**
      * @effects <pre>
      *    return this.manufacturer
      * </pre>
      */
-    @DOpt(type = OptType.Observer) @AttrRef("id")
+    @DOpt(type = OptType.Observer) @AttrRef("manufacturer")
     public String getManufacturer(){
         return this.manufacturer;
     }
 
+    // 4.4: setter for comps
     /**
      * @effects <pre>
      *     return this.comps
      * </pre>
      */
     @DOpt(type = OptType.Observer) @AttrRef("comps")
-    public Set getComps(){
-
-
+    public Set<String> getComps(){
+        return this.comps;
     }
+
+    // PART 5: GETTER (ONLY APPLY IF SOMETHING IS MUTABLE)
+
+    // 5.1: getter for model
+    /**
+     * @modifies this.model
+     * @effects <pre>
+     *     if newModel is valid
+     *          set this.model = newModel
+     *          return true
+     *     else
+     *          return false
+     * </pre>
+     */
+    @DOpt(type = OptType.Mutator) @AttrRef("model")
+    public boolean setModel(String newModel) {
+        if (validateModel(newModel) == true) {
+            this.model = model;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // 5.2: getter for comps
+    /**
+     * @modifies this.comps
+     * @effects <pre>
+     *     if this.comps is valid
+     *          set this.comps = newComps
+     *          return true
+     *     else
+     *          return false
+     * </pre>
+     */
+    @DOpt(type = OptType.Mutator) @AttrRef("model")
+    public boolean setComps(Set<String> newComps) {
+        if (validateComps(newComps) == true) {
+            this.comps = newComps;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    // PART 6: VALIDATOR (A.K.A HELPER)
+
+    // helper
+    // validators: foreach att -> validator
+
+
+    // validator for model
+    /**
+     * @effects <pre>
+     *     if model is valid
+     *          return true
+     *     else
+     *          return false
+     * </pre>
+     */
+    private boolean validateModel(String model){
+        // valid condition: length of model <=20 /\ model != null
+        if (model.length()<=20 && model != null) {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    // validator for year
+    /**
+     * @effects <pre>
+     *     if year is valid
+     *          return true
+     *     else
+     *          return false
+     * </pre>
+     */
+    private boolean validateYear(int year){
+        // valid condition: year must be bigger than 1984
+        if (year >= 1984){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    // validation for manufacturer
+    /**
+     * @effects <pre>
+     *     if manufacturer is valid
+     *          return true
+     *     else
+     *          return false
+     * </pre>
+     */
+    private boolean validateManufacturer(String manufacturer) {
+        // validate condition: length <=15 /\ length != null
+        if (manufacturer.length() <=15 && manufacturer != null){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    //validator for comps
+    /**
+     * @effects <pre>
+     *     if comps is validated
+     *          return true
+     *      else
+     *           return false
+     * </pre>
+     */
+    private boolean validateComps(Set<String> comps){
+        // validation condition: comps must not be null and must not be empty
+        if (comps != null && comps.size() !=0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    // PART 7: REP OK
+
+    /**
+     * @effects <pre>
+     * if this satisfies abstract properties
+     *      return true
+     * else
+     *      return false
+     * </pre>
+     */
+    public boolean repOK(){
+        if (validateModel(this.model) && validateYear(this.year) && validateManufacturer(this.manufacturer) && validateComps(this.comps)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+
+
+
 
 
 }

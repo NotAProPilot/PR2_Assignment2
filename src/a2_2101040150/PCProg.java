@@ -36,9 +36,10 @@ public class PCProg {
 	}
 
 	/**
+	 * DO NOT MODIFY THIS
 	 * @effects if objs is not empty display to the standard console a text-based
 	 *          tabular report on objs return this report else display nothing and
-	 *          return null
+	 *          return null.
 	 */
 	public String displayReport() {
 		if (objs.size() > 0) {
@@ -53,6 +54,7 @@ public class PCProg {
 
 	/**
 	 * @effects save report to a file pcs.txt in the same directory as the program's
+	 * DO NOT MODIFY THIS
 	 */
 	public void saveReport(String report) {
 		String fileName = "pcs.txt";
@@ -63,6 +65,7 @@ public class PCProg {
 
 	/**
 	 * The run method
+	 * DO NOT MODIFY THIS
 	 * 
 	 * @effects initialise an instance of PCProg create objects from data entered by
 	 *          the user display a report on the objects prompt user to save report
