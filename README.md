@@ -54,6 +54,21 @@ Section 1.
 ## Frequently Asked Questions (FAQs)
 1. Specify and implement class PCFactory that has a factory method for creating PCs. This class must also be a **singleton**. **What is a singleton?**
 - Singleton pattern concerns classes that have **only one object**. 
+- Most simple singleton (for the purpose of this assignment) use the following:
+```java
+class A{  
+ private static A obj=new A();//Early, instance will be created at load time  
+ private A(){}  
+   
+ public static A getA(){  
+  return obj;  
+ }  
+  
+ public void doSomething(){  
+ //write your code  
+ }  
+}  
+```
 2. Can integer be null?
 - You must be here from Tutorial 9 documentation.
 - A short answer would be this: 
