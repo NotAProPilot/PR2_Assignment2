@@ -50,7 +50,7 @@ public class PC {
      *      throws NotPossibleException
      * </pre>
      */
-    public PC(@AttrRef("year") int year, @AttrRef("manufacturer") String manufacturer, @AttrRef("model") String model, @AttrRef("comps") Set<String> comps) throws NotPossibleException {
+    public PC(@AttrRef("manufacturer") String manufacturer, @AttrRef("year") int year, @AttrRef("model") String model, @AttrRef("comps") Set<String> comps) throws NotPossibleException {
         if (validateModel(model) && validateYear(year) && validateManufacturer(manufacturer) && validateComps(comps)) {
             this.model = model;
             this.year = year;
@@ -264,38 +264,8 @@ public class PC {
      * </pre>
      */
     public String toString() {
-        StringBuilder report = new StringBuilder();
-
-        // Report title
-        String title = "PC Report";
-        int titleWidth = 99;
-        int titlePadding = (titleWidth - title.length()) / 2;
-        report.append(String.format("%" + titlePadding + "s%s%" + titlePadding + "s%n", "", title, ""));
-
-        // Column headers
-        String[] headers = {"No.", "Model", "Year", "Manufacturer", "Components"};
-        int[] widths = {3, 20, 6, 15, -1};
-        for (int i = 0; i < headers.length; i++) {
-            report.append(String.format("| %-" + widths[i] + "s ", headers[i]));
-        }
-        report.append("|%n");
-
-        // Separator
-        report.append(String.format("%99s%n", "-".repeat(99)));
-
-        // Rows
-        for (int i = 0; i < PC.size(); i++) {
-            report.append(String.format("| %3d | %-" + widths[1] + "s | %6d | %-" + widths[3] + "s | %-s |%n",
-                    i + 1, PC.get(i).getModel(), PC.get(i).getYear(), PC.get(i).getManufacturer(),
-                    String.join(", ", PC.get(i).getComps())));
-        }
-
-        // Bottom border
-        report.append(String.format("%99s%n", "-".repeat(99)));
-
-        return report.toString();
+        // TODO
+        return null;
     }
-
-
 }
 
