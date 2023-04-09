@@ -264,8 +264,12 @@ public class PC {
      * </pre>
      */
     public String toString() {
-        // TODO
-        return null;
+        return "PC<" +
+                "model=" + model + '\'' +
+                ", year='" + year +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", comps=" + comps +
+                '>';
     }
 }
 
