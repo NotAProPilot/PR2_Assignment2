@@ -68,7 +68,8 @@ public class PCReport {
 
         /**
          * The following loop create a table, BY ROW:
-         * for i = 0 to i < objs.length()
+         * for i = 0 to i < the number of PC we created (objs.length)
+         *      print a new line with the formatted index, model, year, manufacturer and components
          */
         for (int i = 0; i < objs.length; i++) {
             PC pc = objs[i];
@@ -79,8 +80,10 @@ public class PCReport {
                     .append(String.format(FormattedComps, pc.getComps().getElements().toString())).append("\n");
         }
 
-        report.append(
-                "---------------------------------------------------------------------------------------------------");
+        // Print out 99 hyphens at the end
+        report.append("-".repeat(99));
+
+        // Converting the whole table to String
         TextIO.putln(report);
         return report.toString();
     }

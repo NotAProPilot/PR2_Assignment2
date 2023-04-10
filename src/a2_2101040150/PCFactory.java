@@ -5,9 +5,8 @@ package a2_2101040150;
 
 /**
  * @overview PCFactory is a program that is used to create PC.
- * This class must also be a singleton. In layman's term, this is a simple class uses Customer and has only one instance.
- * This work is based on the works in Chapter 9 of textbook,
- * and javatpoint: https://www.javatpoint.com/singleton-design-pattern-in-java
+ *           This class must also be a singleton. In layman's term,
+ *           this is a simple class uses Customer and has only one instance.
  */
 public class PCFactory{
     // create a factory method

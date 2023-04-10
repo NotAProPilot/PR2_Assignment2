@@ -44,43 +44,60 @@ public class PCProg {
 	 */
 	public void createObjects() {
 		// accept user input about model
-		TextIO.putln("ENTER YOUR MODEL!: ");
+		TextIO.putln("ENTER YOUR MODEL! ");
 		String ModelInput;
 		ModelInput = TextIO.getlnString();
+
 		// accept user input about model
-		TextIO.putln("ENTER YOUR YEAR OF MANUFACTURE!: ");
+		TextIO.putln("ENTER YOUR YEAR OF MANUFACTURE! ");
 		int YearInput;
 		YearInput = TextIO.getlnInt();
-		// accept user input about model
-		TextIO.putln("ENTER YOUR MANUFACTURER!: ");
+
+		// accept user input about manufacturer
+		TextIO.putln("ENTER YOUR MANUFACTURER! ");
 		String ManufacturerInput;
 		ManufacturerInput = TextIO.getlnString();
-		// accept user input about model
-		//
-		TextIO.putln("ENTER YOUR COMPONENTS!: ");
+
+		// accept user input about components
+		TextIO.putln("ENTER YOUR COMPONENTS! ");
 		TextIO.putln("Please pay attention that you can't enter DUPLICATE components.");
+		// Set<String> created per design requirements
 		Set<String> CompsInput = new Set<>();
+		// initialize boolean
 		boolean hasNextComps = true;
-		while (hasNextComps) {
+
+		/**
+		 * while the user want to add new components
+		 * 		accept input from user
+		 * 		if user want to stop adding components
+		 * 			press enter for a blank line
+		 * 		else
+		 * 			continue typing in
+		 */
+		while (hasNextComps) { // loop explained above
 			String comp = TextIO.getln();
 			CompsInput.insert(comp);
-			TextIO.putln("Continue to add comp?");
-			TextIO.putln("Press Y to add; otherwise, press Enter to exit the program.");
-			if (TextIO.getln().equals("Y")){
-				hasNextComps = true;
-			} else {
+			TextIO.putln("Continue to add components? Press Enter to stop.");
+			if (TextIO.getln().equals("")){
 				break;
+			} else {
+				CompsInput.insert(comp);
+				TextIO.putln("Continue to add components? Press Enter to stop.");
 			}
 		}
 
+		// loop exit
+		// create a new PC
 		PC newPC = PCFactory.getFactory().createPC(ModelInput, YearInput, ManufacturerInput, CompsInput);
+
+		// record the newly created PC in attribute objs
 		objs.insert(newPC);
 
-		TextIO.putln("Press Y to add; otherwise, press Enter to exit the program.");
-
-		if (TextIO.getln().equals("Y")){
+		/* if (TextIO.getln().equals("Y")){
 			createObjects();
 		}
+
+		 */
 
 
 
