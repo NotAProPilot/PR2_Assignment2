@@ -5,8 +5,10 @@ import static utils.TextIO.putln;
 import static utils.TextIO.writeFile;
 import static utils.TextIO.writeStandardOutput;
 
-import java.util.Scanner;
-import java.util.Vector;
+import java.time.Year;
+import java.util.*;
+
+import org.w3c.dom.Text;
 import utils.DomainConstraint;
 import utils.NotPossibleException;
 import utils.TextIO;
@@ -36,12 +38,71 @@ public class PCProg {
 	}
 
 
+	/**
+	 * @overview this method take in user input
+	 * @param pcFactory
+	 * @param objs
+	 */
 	public void createObjects(PCFactory pcFactory, PC[] objs){
-		// Create a new PC object using the factory method
-		PC newPC = pcFactory.createPC();
+		// accept user input about model
+		System.out.println("ENTER YOUR MODEL!: ");
+		String ModelInput;
+		ModelInput = TextIO.getlnString();
+		// accept user input about model
+		System.out.println("ENTER YOUR YEAR OF MANUFACTURE!: ");
+		int YearInput;
+		YearInput = TextIO.getlnInt();
+		// accept user input about model
+		System.out.println("ENTER YOUR MANUFACTURER!: ");
+		String ManufacturerInput;
+		ManufacturerInput = TextIO.getlnString();
+		// accept user input about model
+		//
+		System.out.println("ENTER YOUR COMPONENTS: ");
+		System.out.println("Please pay attention that you can't enter DUPLICATE components.");
+		Set<String> CompsInput = new LinkedHashSet<>();
+		CompsInput = TextIO.getlnString();
+		//TODO: FIX THE GOD DAMN TEXT IO, OR RESORT TO USER SCANNER
+		//TODO: CREATE A PROGRAM ON VSCODE TO TEST WHETHER WE REALLY NEED TO ADD A FOR LOOP TO ADD COMPONENTS
 
-		// Record the new PC object in objs
-		objs[index] = newPC;
+
+		// Create a new PC object using the factory method
+		PC newPC = pcFactory.createPC(ModelInput, YearInput, ManufacturerInput, TODO);
+
+		// Check whether the PC is validated or not:
+		if (newPC.repOK()) {
+			System.out.println("Your input is validated.");
+			System.out.println("We're processing your PC input. Please wait.");
+			// create PC object if input is validated
+			createObjects(pcFactory, objs);
+		} else
+		// if the input is NOT valid, it will do the following
+		{
+			char YesOption = 'Y';
+			char UserOptionInCaseOfError;
+			do {
+				System.out.println("Sorry, but we can't create your PC.");
+				System.out.println("Do you want to continue?");
+				System.out.println("[Y/N]: Press Y for Yes, and N for No.");
+				UserOptionInCaseOfError = TextIO.getlnChar();
+				if (UserOptionInCaseOfError == YesOption) {
+					if (newPC.repOK()) {
+						System.out.println("Your input is validated.");
+						System.out.println("We're processing your PC input. Please wait.");
+						// create PC object if input is validated
+						createObjects(pcFactory, objs);
+						break;
+					} else {
+						System.out.println("Your input is still invalid.");
+					}
+				} else {
+					System.out.println("Exiting program.");
+					break;
+				}
+			} while (true);
+		}
+			// Record the new PC object in objs
+			objs[index] = newPC;
 		index++;
 	}
 
@@ -77,7 +138,7 @@ public class PCProg {
 	/**
 	 * The run method
 	 * DO NOT MODIFY THIS
-	 * 
+	 *
 	 * @effects initialise an instance of PCProg create objects from data entered by
 	 *          the user display a report on the objects prompt user to save report
 	 *          to file if user answers "Y" save report else end
