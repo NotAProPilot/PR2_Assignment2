@@ -83,6 +83,7 @@ public class PCProg {
 			} else {
 				CompsInput.insert(comp);
 				TextIO.putln("Continue to add components? Press Enter to stop.");
+				TextIO.putln("Note that if you type in the same component multiple time, it will return only once that component. ");
 			}
 		}
 
@@ -93,25 +94,25 @@ public class PCProg {
 		// record the newly created PC in attribute objs
 		objs.insert(newPC);
 
-		/* if (TextIO.getln().equals("Y")){
-			createObjects();
-		}
-
-		 */
-
-
-
+		// prompting the user whether they want to add a new PC:
 		TextIO.putln("DO YOU WANT TO ADD NEW PC? [Y/N] ");
 		boolean WantToAddNewPC = true;
 		if (WantToAddNewPC == TextIO.getln().equals(YES)) {
 			createObjects();
 		}
 
-
 	}
 
-
+	/**
+	 * @overview this method return the recorded PC objects.
+	 *
+	 */
 	public PC[] getObjects() {
+		/**
+		 * this line does 2 jobs at once:
+		 * 		return PC object with the size of objs (how many PC we made)
+		 * 		convert that object to an Array (and eventually to a Set)
+		 */
 		return objs.getElements().toArray(new PC[objs.size()]);
 	}
 
@@ -146,10 +147,19 @@ public class PCProg {
 	/**
 	 * The run method
 	 * DO NOT MODIFY THIS
+	 * @effects <pre>
+	 *     first initialize the PCProg object
+	 *     try
+	 *     		display report
+	 *     		if report is not null
+	 *     			ask user to save report to file
+	 *     			if user say Y
+	 *     				save to a new file
+	 *     catch
+	 *     		printout a message error
 	 *
-	 * @effects initialise an instance of PCProg create objects from data entered by
-	 *          the user display a report on the objects prompt user to save report
-	 *          to file if user answers "Y" save report else end
+	 * </pre>
+	 *
 	 */
 	public static void main(String[] args) {
 		//

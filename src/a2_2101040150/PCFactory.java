@@ -1,7 +1,10 @@
 package a2_2101040150;
 
- // using the TextIO class as required
-
+import utils.AttrRef;
+import utils.OptType;
+import utils.DomainConstraint;
+import utils.NotPossibleException;
+import utils.DOpt;
 
 /**
  * @overview PCFactory is a program that is used to create PC.
@@ -9,6 +12,7 @@ package a2_2101040150;
  *           this is a simple class uses Customer and has only one instance.
  */
 public class PCFactory{
+    @DomainConstraint(type = "PCFactory", mutable = false, optional = false)
     // create a factory method
     private static PCFactory factory = new PCFactory();
 
@@ -16,28 +20,19 @@ public class PCFactory{
         // private constructor to prevent instantiation from outside.
         // in other words: this is empty, on purpose.
     }
+    @DOpt(type = OptType.Helper)
+    @AttrRef("instance")
     public static PCFactory getFactory(){
         return factory;
     }
 
-    /**
-     * @param model
-     * @param year
-     * @param manufacture
-     * @param comps
-     * @return
-     */
+     // this method creating PC
     public PC createPC(String model, Integer year, String manufacture, Set<String> comps) {
         // create new PC, with in the class PC (hence the highly confusing command)
         PC newPC = new PC(model, year, manufacture, comps);
         return newPC;
     }
-
-
-
-
 }
 
-    // ASK USER INPUT HERE, DO NOT USE SCANNER
-    // use textIO AND do not submit utils an textio
+
 
