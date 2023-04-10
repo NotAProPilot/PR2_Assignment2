@@ -12,8 +12,9 @@ import utils.NotPossibleException;
 import utils.TextIO;
 
 /**
- * @overview PCProg is a program that captures data about PC objects and
+ * @overview - PCProg is a program that captures data about PC objects and
  *           displays a report about them on the console.
+ *           - Note that for the purpose of this program, the comment of a line is ABOVE that line.
  * 
  * @attributes objs Set<PC>
  * 
@@ -43,70 +44,55 @@ public class PCProg {
 	 */
 	public void createObjects() {
 		// accept user input about model
-		System.out.println("ENTER YOUR MODEL!: ");
+		TextIO.putln("ENTER YOUR MODEL!: ");
 		String ModelInput;
 		ModelInput = TextIO.getlnString();
 		// accept user input about model
-		System.out.println("ENTER YOUR YEAR OF MANUFACTURE!: ");
+		TextIO.putln("ENTER YOUR YEAR OF MANUFACTURE!: ");
 		int YearInput;
 		YearInput = TextIO.getlnInt();
 		// accept user input about model
-		System.out.println("ENTER YOUR MANUFACTURER!: ");
+		TextIO.putln("ENTER YOUR MANUFACTURER!: ");
 		String ManufacturerInput;
 		ManufacturerInput = TextIO.getlnString();
 		// accept user input about model
 		//
-		System.out.println("ENTER YOUR COMPONENTS: ");
-		System.out.println("Please pay attention that you can't enter DUPLICATE components.");
+		TextIO.putln("ENTER YOUR COMPONENTS!: ");
+		TextIO.putln("Please pay attention that you can't enter DUPLICATE components.");
 		Set<String> CompsInput = new Set<>();
 		boolean hasNextComps = true;
 		while (hasNextComps) {
-			TextIO.putln("Input comp: ");
 			String comp = TextIO.getln();
 			CompsInput.insert(comp);
-			TextIO.putln("Continue to add comp? [Y/N]");
-			hasNextComps = TextIO.getln().equals(YES);
-
-
-			// Create a new PC object using the factory method
-			PC newPC = PCFactory.getFactory().createPC(ModelInput, YearInput, ManufacturerInput, CompsInput);
-
-			// Check whether the PC is validated or not:
-			if (newPC.repOK()) {
-				System.out.println("Your input is validated.");
-				System.out.println("We're processing your PC input. Please wait.");
-				// create PC object if input is validated
-				createObjects();
-				objs.insert(newPC);
-			} else
-			// if the input is NOT valid, it will do the following
-			{
-				char YesOption = 'Y';
-				char UserOptionInCaseOfError;
-				do {
-					System.out.println("Sorry, but we can't create your PC.");
-					System.out.println("Do you want to continue?");
-					System.out.println("[Y/N]: Press Y for Yes, and N for No.");
-					UserOptionInCaseOfError = TextIO.getlnChar();
-					if (UserOptionInCaseOfError == YesOption) {
-						if (newPC.repOK()) {
-							System.out.println("Your input is validated.");
-							System.out.println("We're processing your PC input. Please wait.");
-							// create PC object if input is validated
-							createObjects();
-							break;
-						} else {
-							System.out.println("Your input is still invalid.");
-						}
-					} else {
-						System.out.println("Exiting program.");
-						break;
-					}
-				} while (true);
+			TextIO.putln("Continue to add comp?");
+			TextIO.putln("Press Y to add; otherwise, press Enter to exit the program.");
+			if (TextIO.getln().equals("Y")){
+				hasNextComps = true;
+			} else {
+				break;
 			}
-
 		}
+
+		PC newPC = PCFactory.getFactory().createPC(ModelInput, YearInput, ManufacturerInput, CompsInput);
+		objs.insert(newPC);
+
+		TextIO.putln("Press Y to add; otherwise, press Enter to exit the program.");
+
+		if (TextIO.getln().equals("Y")){
+			createObjects();
+		}
+
+
+
+		TextIO.putln("DO YOU WANT TO ADD NEW PC? [Y/N] ");
+		boolean WantToAddNewPC = true;
+		if (WantToAddNewPC == TextIO.getln().equals(YES)) {
+			createObjects();
+		}
+
+
 	}
+
 
 	public PC[] getObjects() {
 		return objs.getElements().toArray(new PC[objs.size()]);
