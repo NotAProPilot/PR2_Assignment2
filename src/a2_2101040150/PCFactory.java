@@ -30,8 +30,8 @@ public class PCFactory{
      */
     public PC createPC(String model, Integer year, String manufacture, Set<String> comps) {
         // create new PC, with in the class PC (hence the highly confusing command)
-        PC pc = new PC(model, year, manufacture, comps);
-        return pc;
+        PC newPC = new PC(model, year, manufacture, comps);
+        return newPC;
     }
 
 

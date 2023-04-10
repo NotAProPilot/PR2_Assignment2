@@ -7,6 +7,7 @@ import utils.OptType;
 import utils.collections.Collection;
 
 /**
+ * DO NOT MODIFY THIS METHOD
  * @overview Generic set are mutable, unbounded sets of elements of a given
  *           type. Element type can be Object.
  *
@@ -184,12 +185,16 @@ public class Set<T> implements Collection<T> {
 		return true;
 	}
 
-	@Override
-	public boolean equals(Object o) {
+
+	/**
+	 // @Override
+	    public boolean equals(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Set)) return false;
 		Set<?> set = (Set<?>) o;
 		return getElements().equals(set.getElements());
-	}
+	 }
+	 */
+
 }
 

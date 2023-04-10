@@ -5,10 +5,8 @@ import static utils.TextIO.putln;
 import static utils.TextIO.writeFile;
 import static utils.TextIO.writeStandardOutput;
 
-import java.time.Year;
 import java.util.*;
 
-import org.w3c.dom.Text;
 import utils.DomainConstraint;
 import utils.NotPossibleException;
 import utils.TextIO;
@@ -34,7 +32,7 @@ public class PCProg {
 	 * @effects initialise this to have an empty set of PCs
 	 */
 	public PCProg() {
-		objs = new Set<>();
+		objs = new Set<PC>();
 	}
 
 
@@ -43,7 +41,7 @@ public class PCProg {
 	 * @param pcFactory
 	 * @param objs
 	 */
-	public void createObjects(PCFactory pcFactory, PC[] objs){
+	public void createObjects() {
 		// accept user input about model
 		System.out.println("ENTER YOUR MODEL!: ");
 		String ModelInput;
@@ -60,52 +58,59 @@ public class PCProg {
 		//
 		System.out.println("ENTER YOUR COMPONENTS: ");
 		System.out.println("Please pay attention that you can't enter DUPLICATE components.");
-		Set<String> CompsInput = new LinkedHashSet<>();
-		CompsInput = TextIO.getlnString();
-		//TODO: FIX THE GOD DAMN TEXT IO, OR RESORT TO USER SCANNER
-		//TODO: CREATE A PROGRAM ON VSCODE TO TEST WHETHER WE REALLY NEED TO ADD A FOR LOOP TO ADD COMPONENTS
+		Set<String> CompsInput = new Set<>();
+		boolean hasNextComps = true;
+		while (hasNextComps) {
+			TextIO.putln("Input comp: ");
+			String comp = TextIO.getln();
+			CompsInput.insert(comp);
+			TextIO.putln("Continue to add comp? [Y/N]");
+			hasNextComps = TextIO.getln().equals(YES);
 
 
-		// Create a new PC object using the factory method
-		PC newPC = pcFactory.createPC(ModelInput, YearInput, ManufacturerInput, TODO);
+			// Create a new PC object using the factory method
+			PC newPC = PCFactory.getFactory().createPC(ModelInput, YearInput, ManufacturerInput, CompsInput);
 
-		// Check whether the PC is validated or not:
-		if (newPC.repOK()) {
-			System.out.println("Your input is validated.");
-			System.out.println("We're processing your PC input. Please wait.");
-			// create PC object if input is validated
-			createObjects(pcFactory, objs);
-		} else
-		// if the input is NOT valid, it will do the following
-		{
-			char YesOption = 'Y';
-			char UserOptionInCaseOfError;
-			do {
-				System.out.println("Sorry, but we can't create your PC.");
-				System.out.println("Do you want to continue?");
-				System.out.println("[Y/N]: Press Y for Yes, and N for No.");
-				UserOptionInCaseOfError = TextIO.getlnChar();
-				if (UserOptionInCaseOfError == YesOption) {
-					if (newPC.repOK()) {
-						System.out.println("Your input is validated.");
-						System.out.println("We're processing your PC input. Please wait.");
-						// create PC object if input is validated
-						createObjects(pcFactory, objs);
-						break;
+			// Check whether the PC is validated or not:
+			if (newPC.repOK()) {
+				System.out.println("Your input is validated.");
+				System.out.println("We're processing your PC input. Please wait.");
+				// create PC object if input is validated
+				createObjects();
+				objs.insert(newPC);
+			} else
+			// if the input is NOT valid, it will do the following
+			{
+				char YesOption = 'Y';
+				char UserOptionInCaseOfError;
+				do {
+					System.out.println("Sorry, but we can't create your PC.");
+					System.out.println("Do you want to continue?");
+					System.out.println("[Y/N]: Press Y for Yes, and N for No.");
+					UserOptionInCaseOfError = TextIO.getlnChar();
+					if (UserOptionInCaseOfError == YesOption) {
+						if (newPC.repOK()) {
+							System.out.println("Your input is validated.");
+							System.out.println("We're processing your PC input. Please wait.");
+							// create PC object if input is validated
+							createObjects();
+							break;
+						} else {
+							System.out.println("Your input is still invalid.");
+						}
 					} else {
-						System.out.println("Your input is still invalid.");
+						System.out.println("Exiting program.");
+						break;
 					}
-				} else {
-					System.out.println("Exiting program.");
-					break;
-				}
-			} while (true);
+				} while (true);
+			}
+
 		}
-			// Record the new PC object in objs
-			objs[index] = newPC;
-		index++;
 	}
 
+	public PC[] getObjects() {
+		return objs.getElements().toArray(new PC[objs.size()]);
+	}
 
 	/**
 	 * DO NOT MODIFY THIS
