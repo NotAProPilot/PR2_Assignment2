@@ -60,15 +60,59 @@ A,B,C,D
 ## Scenario 2: Using `private` constructor
 - Well, you might want to **RESTRICT** access to something. Imagine you want to implement an data base with 2 class:
 ```java
-public class ReturnMyBalance{
-    private static int ReturnMyBalance(){
-        // a private means you can ONLY access it through methods below.
+import java.util.ArrayList;
+
+public class ReturnMyBalance {
+    private ArrayList<Integer> balance;  // Declare balance variable as an instance field
+
+    // Private constructor to prevent direct instantiation
+    private ReturnMyBalance() {
+        this.balance = new ArrayList<Integer>();
     }
-    
-    // constructor
-    public static ReturnMyBalance getYourBalance(){
-        if (balance == null){
+
+    // Static method to retrieve a new instance of ReturnMyBalance
+    public static ReturnMyBalance getYourBalance() {
+        if (balance == null) {
+            balance = new ReturnMyBalance();
+        } else {
+            throw new NotPossibleException("Balance already exists.");
         }
+    }
+
+    // Method to add money to the balance
+    public void addMoney(int money) {
+        this.balance.add(money);
+    }
+
+    // Method to retrieve the balance
+    public ArrayList<Integer> getBalance() {
+        return this.balance;
+    }
+}
+```
+- And another class would be:
+```java
+import java.util.Scanner;
+
+public class Main{
+    public static void main (String []args){
+        // initialize an ArrayList of balance
+        ArrayList<Int> money = new ArrayList<String>();
+        
+        //accept user input of money
+        Scanner console = new Scanner(System.in);
+        int n = console.nextInt();
+        
+        //add money
+        // first initialize a ReturnMyBalance method
+        ReturnMyBalance returnMoney = new ReturnMyBalance(money);
+        
+        //add money:
+        //THIS IS THE ONLY WAY TO GET MONEY: money.add() WILL NOT WORK.
+        returnMoney.add(n);
+        
+        //display
+        System.out.println(returnMoney.getBalance.add(n));
         
     }
-    }
+}
