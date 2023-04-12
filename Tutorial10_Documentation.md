@@ -86,7 +86,7 @@ public ContactList(ArrayList<String> contatcs){
 }
 ```
 TL;DR: If you see something with `this.something = something` and if the getter and setter return `something`, FOR THE LOVE OF GOD; CLONE YOUR FUCKING ARRAY LIST!
-- Note: `String` is the exception to this. 
+- Note: Primitive data types are the exception to this. 
 
 
 # A (horrible) example to demonstrate our point
