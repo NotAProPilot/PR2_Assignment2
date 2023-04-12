@@ -124,3 +124,17 @@ public class Main{
 - This lies in the way Java was designed. For the sake of simplicity, imagine a car. The **left door** is private (and is connected to the car, obviously). According to our logic, any door that modify the car has to go through the *approved* left door.
 - Not quite. If, somehow, you could make a **right door**, and that door is **also connected to the car**, then... you've effectivelly modified the car. 
 - Great. Now what?
+- Well, it's very simple: Instead of having either door connect to the car, you **clone the car**, and make sure other door get access to **the cloned ONLY**.
+- **TL;DR:** 
+```java
+public ContactList(ArrayList<String> contatcs){
+  this.contacts = contact // THIS IS VERY BAD
+}
+
+public ContactList(ArrayList<String> contatcs){
+  // FOR THE LOVE OF GOD; PLEASE DO THIS, CLONE A FUCKING ARRAYLIST TO MAKE SURE PRIVATE IS PRIVATE
+  ArrayList<String> clone = new ArrayList<String>();
+  for (String name: contacts){
+    clone.add(name)
+  }
+}
