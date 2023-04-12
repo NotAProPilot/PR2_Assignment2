@@ -116,3 +116,11 @@ public class Main{
         
     }
 }
+```
+- So, use private for sensitive stuff. Case close, right? Not quite.
+
+## Scenario 3: *Actually* protecting your code
+- Back to the ContactList. Well, if you just put `private`, there's a problem.
+- This lies in the way Java was designed. For the sake of simplicity, imagine a car. The **left door** is private (and is connected to the car, obviously). According to our logic, any door that modify the car has to go through the *approved* left door.
+- Not quite. If, somehow, you could make a **right door**, and that door is **also connected to the car**, then... you've effectivelly modified the car. 
+- Great. Now what?
