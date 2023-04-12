@@ -84,3 +84,5 @@ public ContactList(ArrayList<String> contatcs){
     clone.add(name)
   }
 }
+```
+TL;DR: If you see something with `this.something = something` and if the getter and setter return `something`, FOR THE LOVE OF GOD; CLONE YOUR FUCKING ARRAY LIST!
