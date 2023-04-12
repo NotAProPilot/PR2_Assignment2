@@ -16,8 +16,12 @@ public class ContactList {
         // TODO: validiate
         this.contacts = copy;
     }
+    
+    // method to add:
+    public void add (String name)
+        this.contacts.add(name) // add "name" to this.contacts
 
-    // getter
+    // getter, which GET the data
     public ArrayList<String> getContacts() {
         return this.contacts
     }
@@ -41,9 +45,15 @@ public class Ex1{
   // Attemp to add name directly to CLS:
   CLS.add("C");
   CLS.add("D");
+  
+  // Display the result after create CLS, using getContacts:
+  System.out.println(CLS.getContacts())
+  
+  //
   }
 }
 ```
 The result would be:
 `
+A,B,C,D
 `
