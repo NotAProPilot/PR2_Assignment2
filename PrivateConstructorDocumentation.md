@@ -57,3 +57,18 @@ The result would be:
 `
 A,B,C,D
 `
+## Scenario 2: Using `private` constructor
+- Well, you might want to **RESTRICT** access to something. Imagine you want to implement an data base with 2 class:
+```java
+public class ReturnMyBalance{
+    private static int ReturnMyBalance(){
+        // a private means you can ONLY access it through methods below.
+    }
+    
+    // constructor
+    public static ReturnMyBalance getYourBalance(){
+        if (balance == null){
+        }
+        
+    }
+    }
