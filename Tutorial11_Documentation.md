@@ -39,5 +39,12 @@ private computerAge(int YearOfBirth)
 //
  
  ```
+-TL;DR: There are 4 steps:
+1. Generate a derived attribute
+2. Setter
+3. Getter
+4. Activate a method that uses derived attribue (practice that using the modified PCProg Program)
 
+
+## Singleton class
 
