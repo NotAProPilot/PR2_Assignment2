@@ -90,15 +90,43 @@ public class Main {
     }
 }
 ```
-- Why there are 2 `this.calculatedArea`? If you look at the `Main` method, you will see there are 2 `setRadius`. So, as long as we want to change the 
+- Why there are 2 `this.calculatedArea`? If you look at the `Main` method, you will see there are 2 `setRadius`. So, as long as we want to change the Radius, we will need to have 2 of that.
+**TL;DR: A devried attribute shall have the following:**
+```java
+//1. Set that derived attribute. (Constructor)
+//2. Getter and setter for the base of theat devried attribute. Re-declared the dervied attribute in the setter.
+//3. Getter for the dervied attribute.
+//4. Helper for said dervied attributed (which is actually to use the derived attribute)
+```
 
- 
--TL;DR: There are 4 steps:
-1. Generate a derived attribute
-2. Setter
-3. Getter
-4. Activate a method that uses derived attribue (practice that using the modified PCProg Program)
+## Singleton pattern
+### Why singleton?
+- Imagine a dorm room, with 1 printer. It'd be a nighhtmare, if anyone could just print without asking anyone else, right?
+- In coding language, we could explain in coding language:
+```java
+public class SinglePrintOrder {
+    // Private static instance variable to hold the single print instance
+    private static SingletonPrintOrder print;
 
+    // Private constructor to prevent instantiation from outside the class
+    private SingletonExample() {
+        // Initialization code here
+    }
 
-## Singleton class
+    // Public static method to get the single instance of the class
+    // Only if there is no print order (print == null), create
+    public static SingletonExample getInstance() {
+        if (instance == null) {
+            instance = new SinglePrintOrder();
+        }
+        return print;
+    }
 
+    // Other methods and attributes of the class
+}
+```
+- And of course, we can get a main method to test it:
+```java
+public class Main{
+  public static void main 
+}
