@@ -108,12 +108,9 @@ package Singleton_Demo;
 public class SinglePrintOrder {
     // Private static instance variable to hold the single print instance
     private static SinglePrintOrder print;
-
-    // Private constructor to prevent instantiation from outside the class
-
-
+    
     // Public static method to get the single instance of the class
-    // Only if there is no print order (print == null), create
+    // Only if there is no print order (print == null), get a new order, named "getPrintOrder"
     public static SinglePrintOrder getPrintOrder() {
         if (print== null) {
             print = new SinglePrintOrder();
@@ -133,3 +130,60 @@ public class SinglePrintOrder {
 public class Main{
   public static void main 
 }
+
+```
+- A more elaborate edition, which also accept user input, will consists of this:
+```java
+import Singleton_Demo.SinglePrintOrder;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter print order details: ");
+        System.out.print("Print Type: ");
+        String printType = console.nextLine();
+        System.out.print("Print Quantity: ");
+        int printQuantity = console.nextInt();
+        
+        // Get the single instance of the SinglePrintOrder class
+        SinglePrintOrder order = SinglePrintOrder.getPrintOrder(printType, printQuantity);
+        
+        // Print the order details
+        System.out.println("Print Order: " + order);
+    }
+}
+```
+and this:
+```
+package Singleton_Demo;
+
+public class SinglePrintOrder {
+    private String printType;
+    private int printQuantity;
+    private static SinglePrintOrder print;
+
+    // Private constructor to prevent instantiation from outside the class
+    private SinglePrintOrder(String printType, int printQuantity) {
+        this.printType = printType;
+        this.printQuantity = printQuantity;
+        System.out.println("Sample");
+    }
+
+    // Public static method to get the single instance of the class
+    // Only if there is no print order (print == null), create
+    public static SinglePrintOrder getPrintOrder(String printType, int printQuantity) {
+        if (print == null) {
+            print = new SinglePrintOrder(printType, printQuantity);
+        }
+        return print;
+    }
+
+    // Override toString method to print order details
+    @Override
+    public String toString() {
+        return "Print Type: " + printType + ", Print Quantity: " + printQuantity;
+    }
+}
+```
