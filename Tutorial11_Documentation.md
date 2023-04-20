@@ -104,25 +104,23 @@ public class Main {
 - Imagine a dorm room, with 1 printer. It'd be a nighhtmare, if anyone could just print without asking anyone else, right?
 - In coding language, we could explain in coding language:
 ```java
+package Singleton_Demo;
 public class SinglePrintOrder {
     // Private static instance variable to hold the single print instance
-    private static SingletonPrintOrder print;
-
-    // Private constructor to prevent instantiation from outside the class
-    private SingletonExample() {
-        // Initialization code here
-    }
+    private static SinglePrintOrder print;
 
     // Public static method to get the single instance of the class
-    // Only if there is no print order (print == null), create
-    public static SingletonExample getInstance() {
-        if (instance == null) {
-            instance = new SinglePrintOrder();
+    // Only if there is no print order (print == null), create a new print order, name getPrintOrder
+    // IMPORTANT: Both the public 
+    public static SinglePrintOrder getPrintOrder() {
+        if (print== null) {
+            print = new SinglePrintOrder();
         }
         return print;
     }
 
     // Other methods and attributes of the class
+}
 }
 ```
 - And of course, we can get a main method to test it:
