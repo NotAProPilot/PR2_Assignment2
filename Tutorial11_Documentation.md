@@ -156,7 +156,7 @@ public class Main {
 }
 ```
 and this:
-```
+```java
 package Singleton_Demo;
 
 public class SinglePrintOrder {
