@@ -109,9 +109,11 @@ public class SinglePrintOrder {
     // Private static instance variable to hold the single print instance
     private static SinglePrintOrder print;
 
+    // Private constructor to prevent instantiation from outside the class
+
+
     // Public static method to get the single instance of the class
-    // Only if there is no print order (print == null), create a new print order, name getPrintOrder
-    // IMPORTANT: Both the public 
+    // Only if there is no print order (print == null), create
     public static SinglePrintOrder getPrintOrder() {
         if (print== null) {
             print = new SinglePrintOrder();
@@ -119,8 +121,11 @@ public class SinglePrintOrder {
         return print;
     }
 
-    // Other methods and attributes of the class
-}
+    // initialize the SinglePrintOrder class
+    private SinglePrintOrder(){
+        System.out.println("Sample");
+    }
+
 }
 ```
 - And of course, we can get a main method to test it:
