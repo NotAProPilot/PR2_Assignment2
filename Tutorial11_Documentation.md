@@ -138,6 +138,8 @@ public class Main {
         
    // Meanwhile, THIS will NOT work:
       SinglePrintOrder order = new SinglePrintOrder
+      
+      // OF COURSE THIS LINE WILL RUN; IF YOU PICK THE FIRST ONE
         System.out.println(order);
 
     }
