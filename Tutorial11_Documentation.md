@@ -127,8 +127,20 @@ public class SinglePrintOrder {
 ```
 - And of course, we can get a main method to test it:
 ```java
-public class Main{
-  public static void main 
+import Singleton_Demo.SinglePrintOrder;
+
+
+public class Main {
+    public static void main(String[] args) {
+    // initialize a print order. You MUST do this to initialize a print order.
+    // After all, that's the whole point of a singleton.
+        SinglePrintOrder order = SinglePrintOrder.getPrintOrder();
+        
+   // Meanwhile, THIS will NOT work:
+      SinglePrintOrder order = new SinglePrintOrder
+        System.out.println(order);
+
+    }
 }
 
 ```
